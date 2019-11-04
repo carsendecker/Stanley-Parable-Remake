@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="506c55f4-b57c-4b0e-abc0-99159c7c7fa7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CarsenScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CarsenScene.unity" afterDir="false" />
-    </list>
+    <list default="true" id="506c55f4-b57c-4b0e-abc0-99159c7c7fa7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +12,7 @@
     <session id="-1012373943">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="2" />
@@ -22,12 +20,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="1" />
+          <entry key="cs" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="1" />
+          <entry key="C#" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -44,7 +42,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
@@ -60,12 +58,29 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MouseLook.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="27" column="56" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="56" />
+              <folding>
+                <marker date="1569830168354" expanded="false" signature="6:78" ph="..." />
+                <marker date="1569830168354" expanded="true" signature="80:158" ph="/* Put on Main Camera ... */" />
+                <marker date="1569830168354" expanded="true" signature="197:1004" ph="{...}" />
+                <marker date="1569830168354" expanded="true" signature="418:480" ph="{...}" />
+                <marker date="1569830168354" expanded="true" signature="499:1002" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MouseLook.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -146,12 +161,12 @@
       <option name="presentableId" value="Default" />
       <updated>1572473414193</updated>
       <workItem from="1572473416288" duration="277000" />
-      <workItem from="1572473956553" duration="370000" />
+      <workItem from="1572473956553" duration="738000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="647000" />
+    <option name="totallyTimeSpent" value="1015000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -221,6 +236,20 @@
             <marker date="1572474197742" expanded="true" signature="286:338" ph="{...}" />
             <marker date="1572474197742" expanded="true" signature="396:580" ph="{...}" />
             <marker date="1572474197742" expanded="true" signature="612:753" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MouseLook.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="56" />
+          <folding>
+            <marker date="1569830168354" expanded="false" signature="6:78" ph="..." />
+            <marker date="1569830168354" expanded="true" signature="80:158" ph="/* Put on Main Camera ... */" />
+            <marker date="1569830168354" expanded="true" signature="197:1004" ph="{...}" />
+            <marker date="1569830168354" expanded="true" signature="418:480" ph="{...}" />
+            <marker date="1569830168354" expanded="true" signature="499:1002" ph="{...}" />
           </folding>
         </state>
       </provider>
