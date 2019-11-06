@@ -16,6 +16,8 @@ public class NarrationTrigger : MonoBehaviour
 
     public int TextNumber,OfficeTextNumber;
 
+    public Animation PanelDisappear, TextDisappear;
+
     private bool isAdding;
 
     private bool EnterOffice;
@@ -47,6 +49,7 @@ public class NarrationTrigger : MonoBehaviour
                                      "unable to move for\n the longest time.";
             
                 Panel.SetActive(true);
+                
                 if (!NarrationAudio.isPlaying)
                 {
                     NarrationAudio.clip = sounds[TextNumber];
@@ -57,6 +60,8 @@ public class NarrationTrigger : MonoBehaviour
 
             if (TextNumber == 1)
             {
+                PanelDisappear.Play();
+                TextDisappear.Play();
                 MainNarration.text = "But as he came to his wits and regained his senses, he got up from his desk and" +
                                      "stepped out of his\noffice.";
                 Panel.SetActive(true);
@@ -69,6 +74,8 @@ public class NarrationTrigger : MonoBehaviour
             }
             if (TextNumber == 2)
             {
+                PanelDisappear.Play();
+                TextDisappear.Play();
                 MainNarration.text = "But as he came to his wits and regained his senses, he got up from his desk and" +
                                      "stepped out of his\noffice.";
                 Panel.SetActive(true);
@@ -110,6 +117,7 @@ public class NarrationTrigger : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         TextNumber++;
         isAdding = false;
+        
     }
     /*
     IEnumerator Officetimer(float seconds)
