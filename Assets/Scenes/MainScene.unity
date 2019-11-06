@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 76490708}
   - component: {fileID: 76490707}
   - component: {fileID: 76490706}
+  - component: {fileID: 76490709}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -193,6 +194,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -251}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!111 &76490709
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76490705}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a8fccf0506b7a479cb87ce34d4823401, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a8fccf0506b7a479cb87ce34d4823401, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &352099504
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +642,8 @@ MonoBehaviour:
   GameStart: 0
   TextNumber: 0
   OfficeTextNumber: 0
+  PanelDisappear: {fileID: 76490709}
+  TextDisappear: {fileID: 1873685554}
   sounds:
   - {fileID: 8300000, guid: 20706817cd8fac44fb11ddce0540654b, type: 3}
   - {fileID: 8300000, guid: 15f42d7bfa781124c9e64aec0c78392b, type: 3}
@@ -1007,6 +1026,7 @@ GameObject:
   - component: {fileID: 1873685551}
   - component: {fileID: 1873685552}
   - component: {fileID: 1873685553}
+  - component: {fileID: 1873685554}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1151,3 +1171,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!111 &1873685554
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873685550}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c3cc6bf1483704bfaacb71ddb729f5a5, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c3cc6bf1483704bfaacb71ddb729f5a5, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
