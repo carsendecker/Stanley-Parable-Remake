@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="506c55f4-b57c-4b0e-abc0-99159c7c7fa7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Stanley-Parable-Remake/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stanley-Parable-Remake/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NarrationTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NarrationTrigger.cs" afterDir="false" />
-    </list>
+    <list default="true" id="506c55f4-b57c-4b0e-abc0-99159c7c7fa7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +91,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/NarrationTrigger.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
+            <state relative-caret-position="245">
               <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
               <folding>
                 <marker date="1573077489530" expanded="false" signature="6:114" ph="..." />
@@ -213,12 +210,12 @@
       <updated>1572473414193</updated>
       <workItem from="1572473416288" duration="277000" />
       <workItem from="1572473956553" duration="738000" />
-      <workItem from="1573077267370" duration="280000" />
+      <workItem from="1573077267370" duration="586000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1295000" />
+    <option name="totallyTimeSpent" value="1601000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -230,7 +227,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="128" y="101" width="1007" height="587" extended-state="1" />
+    <frame x="128" y="101" width="1007" height="587" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20829016" />
@@ -294,7 +291,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/NarrationTrigger.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="245">
           <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
           <folding>
             <marker date="1573077489530" expanded="false" signature="6:114" ph="..." />
