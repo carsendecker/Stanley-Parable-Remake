@@ -6,11 +6,16 @@ using UnityEngine.UI;
 //USAGE: put this on the NarrationTriggerSystem and it generates the main narration
 public class NarrationTrigger : MonoBehaviour
 {
+    [Serializable]
+    public struct VoiceLine
+    {
+        public AudioClip LineAudio;
+        [TextArea] public string Subtitle;
+    }
+    
     public TMPro.TMP_Text MainNarration;
 
     public GameObject Panel;
-
-    public AudioSource NarrationAudio;
 
     public bool GameStart;
 
@@ -19,13 +24,21 @@ public class NarrationTrigger : MonoBehaviour
     public Animation PanelDisappear, TextDisappear;
 
     private bool isAdding;
-
     private bool EnterOffice;
+
     public AudioClip[] sounds;
+    
+    public VoiceLine[] voiceLines;
+    
+    private AudioSource NarrationAudio;
+    private AudioSystem audioSystem;
+    private bool alreadyPlayed;
+
     
     // Start is called before the first frame update
     void Start()
     {
+        NarrationAudio = GameObject.FindGameObjectWithTag("AudioSystem").GetComponent<AudioSource>();
         MainNarration.text = "";
         Panel.SetActive(false);
         NarrationAudio.Stop();
@@ -35,11 +48,11 @@ public class NarrationTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameStart = true;
-            
-        }
+//        if (Input.GetMouseButtonDown(0))
+//        {
+//            GameStart = true;
+//            
+//        }
 
         if (!EnterOffice)
         {
@@ -128,8 +141,13 @@ public class NarrationTrigger : MonoBehaviour
         isAdding = false;
     } */
 
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
+        if (alreadyPlayed)
+        {
+            return;
+        }
+        
         if (other.gameObject.name == "Office" & !EnterOffice)
         {
             NarrationAudio.Stop();
@@ -144,5 +162,28 @@ public class NarrationTrigger : MonoBehaviour
             if (!NarrationAudio.isPlaying)
                 OfficeTextNumber++;
         }
+
+        StartCoroutine(PlayNarrationSeries());
+
     }
+
+    IEnumerator PlayNarrationSeries()
+    {
+        foreach (VoiceLine line in voiceLines)
+        {
+            //Only executes on the first voice line, interrupts any previous playing narration
+            if (!alreadyPlayed)
+            {
+                audioSystem.PlayNarration(line.LineAudio);
+                alreadyPlayed = true;
+                continue;
+            }
+            
+            //Waits until the previous line is done playing
+            yield return new WaitUntil(() => !audioSystem.NarrationAudio.isPlaying);
+            
+            audioSystem.PlayNarration(line.LineAudio);
+        }
+    }
+    
 }
