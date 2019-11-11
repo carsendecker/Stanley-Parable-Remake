@@ -42,6 +42,7 @@
     <session id="439404648">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -92,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/NarrationTrigger.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="245">
-              <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+              <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
               <folding>
                 <marker date="1573077489530" expanded="false" signature="6:114" ph="..." />
                 <marker date="1573077489530" expanded="true" signature="244:4654" ph="{...}" />
@@ -292,7 +293,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/NarrationTrigger.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
-          <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+          <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
           <folding>
             <marker date="1573077489530" expanded="false" signature="6:114" ph="..." />
             <marker date="1573077489530" expanded="true" signature="244:4654" ph="{...}" />
