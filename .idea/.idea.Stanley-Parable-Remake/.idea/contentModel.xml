@@ -4,6 +4,11 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Materials" t="Include">
+          <e p="Shader Stuff" t="Include">
+            <e p="Infinite Repeat Shader.shader" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="AudioSystem.cs" t="Include" />
           <e p="DoorBehavior.cs" t="Include" />

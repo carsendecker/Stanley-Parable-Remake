@@ -46,11 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainNarration: {fileID: 0}
   Panel: {fileID: 0}
-  NarrationAudio: {fileID: 0}
   GameStart: 0
-  TextNumber: 0
-  OfficeTextNumber: 0
-  sounds: []
+  PanelDisappear: {fileID: 0}
+  TextDisappear: {fileID: 0}
+  voiceLines:
+  - LineAudio: {fileID: 8300000, guid: d1bcf94c505b74bed9db342d49af3200, type: 3}
+    Subtitle: All of his co-workers were gone. What could it mean? Stanley decided
+      to go to the meeting room; perhaps he had simply missed a memo.
 --- !u!65 &8421105474973488862
 BoxCollider:
   m_ObjectHideFlags: 0
