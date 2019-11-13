@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorBehavior : MonoBehaviour
 {
     public static Animator doorAnim; //create a public static animator called doorAnim
+    public bool StartOpenFront, StartOpenBack;
 
 
     // Start is called before the first frame update

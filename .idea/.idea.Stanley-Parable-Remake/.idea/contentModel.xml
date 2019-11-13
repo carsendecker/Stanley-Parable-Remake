@@ -11,7 +11,9 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AudioSystem.cs" t="Include" />
+          <e p="BackDoorOpen.cs" t="Include" />
           <e p="DoorBehavior.cs" t="Include" />
+          <e p="FrontDoorOpen.cs" t="Include" />
           <e p="MouseLook.cs" t="Include" />
           <e p="NarrationTrigger.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
