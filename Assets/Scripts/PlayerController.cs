@@ -23,6 +23,6 @@ public class PlayerController : MonoBehaviour
     //Sets the player velocity based on the input values
     private void FixedUpdate()
     {
-        rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(tempVel.x * MoveSpeed, rb.velocity.y, tempVel.z * MoveSpeed), 0.2f);
+        rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(tempVel.x * MoveSpeed, rb.velocity.y, tempVel.z * MoveSpeed), 0.8f);
     }
 }
