@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float MoveSpeed;
+    public float Gravity;
+    
 
     private Rigidbody rb;
+    private CharacterController cc;
     private Vector3 tempVel;
     
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        cc = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -23,6 +26,7 @@ public class PlayerController : MonoBehaviour
     //Sets the player velocity based on the input values
     private void FixedUpdate()
     {
-        rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(tempVel.x * MoveSpeed, rb.velocity.y, tempVel.z * MoveSpeed), 0.8f);
+        cc.Move(new Vector3(tempVel.x * MoveSpeed, -Gravity, tempVel.z * MoveSpeed) * Time.deltaTime);
+//        rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(tempVel.x * MoveSpeed, rb.velocity.y, tempVel.z * MoveSpeed), 0.8f);
     }
 }
