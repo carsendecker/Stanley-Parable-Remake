@@ -276,7 +276,7 @@ MonoBehaviour:
   doorFrontOpen: 0
   doorBackOpen: 1
   DisablePlayerCon: 0
-  AutoCloseFront: 1
+  AutoCloseFront: 0
   AutoCloseBack: 0
 --- !u!23 &482910332
 MeshRenderer:
