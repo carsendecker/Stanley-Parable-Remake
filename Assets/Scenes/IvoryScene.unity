@@ -368,8 +368,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645541671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.21, y: 4.096, z: -4.995}
-  m_LocalScale: {x: 0.47057998, y: 8.511694, z: 11.704998}
+  m_LocalPosition: {x: 5.21, y: 4.096, z: -4.77}
+  m_LocalScale: {x: 0.47057998, y: 8.511694, z: 12.149788}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -926,69 +926,69 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1001 &7805394130986197089
+--- !u!1001 &4831547085844318004
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7805394129757069636, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411921, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_Name
       value: doorset
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.8576484
+      value: -4.8471
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 5.0535297
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -10.543035
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7805394129757069639, guid: 85e5f4fa62968554889d2dabcb357ffa,
+    - target: {fileID: 4831547084884411922, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
