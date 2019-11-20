@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class BackTrigger : MonoBehaviour
 {
+    public DoorController DC;
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("enter");
-        if (DoorController.BdoorAutoClose == true)
+        if (DC.AutoCloseBack == true)
         {
-            DoorController.Disable = true;
-            DoorController.doorAnimator.SetTrigger("autoCloseTrigger");
+            DC.Disable = true;
+            DC.doorAnimator.SetTrigger("autoCloseTrigger");
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        DoorController.back = true;
-        DoorController.front = false;
+        DC.back = true;
+        DC.front = false;
 
         
     }
@@ -26,7 +27,7 @@ public class BackTrigger : MonoBehaviour
     {
         
 
-        DoorController.back = false;
-        DoorController.front = false;
+        DC.back = false;
+        DC.front = false;
     }
 }

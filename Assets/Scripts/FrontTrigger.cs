@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class FrontTrigger : MonoBehaviour
 {
+    public DoorController DC;
     private void OnTriggerEnter(Collider other)
     {
         
-        if (DoorController.FdoorAutoClose == true)
+        if (DC.AutoCloseFront == true)
         {
-            DoorController.Disable = true;
-            DoorController.doorAnimator.SetTrigger("autoCloseTrigger");
+            DC.Disable = true;
+            DC.doorAnimator.SetTrigger("autoCloseTrigger");
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        DoorController.back = false;
-        DoorController.front = true;
+        DC.back = false;
+        DC.front = true;
 
     }
 
     private void OnTriggerExit(Collider other)
     {
        
-        DoorController.back = false;
-        DoorController.front = false;
+        DC.back = false;
+        DC.front = false;
     }
 
 
