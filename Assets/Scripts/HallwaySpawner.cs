@@ -6,15 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class HallwaySpawner : MonoBehaviour
 {
-    public GameObject[] Rooms; //DO NOT PUT IN THE CURRENT ROOM THIS IS IN
-    public Transform ExitLocationRight, ExitLocationLeft;
+    public GameObject[] Rooms; //DO NOT PUT THE CURRENT ROOM INTO THIS ARRAY TO PREVENT DUPLICATES
+    public Transform ExitLocation;
     public float ExitRotation;
-    public bool PivotOnRight, PivotOnLeft;
 
-    public bool isFirstRoom;
-    [HideInInspector] public GameObject PreviousRoom;
-
-    
+    //Do not touch, only public in inspector for the very first room to delete the stairwell
+    public GameObject PreviousRoom;
 
     private bool triggered;
 
@@ -25,32 +22,28 @@ public class HallwaySpawner : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
-            //Initially spawns room on the right corner of the exit door
+            //Spawns room at the exit door
             int randRoom = Random.Range(0, Rooms.Length);
-            GameObject newRoom = Instantiate(Rooms[randRoom], ExitLocationRight.position, Rooms[randRoom].transform.rotation);
-            
+            GameObject newRoom = Instantiate(Rooms[randRoom], ExitLocation.position, Rooms[randRoom].transform.rotation);
+
+            //Rotates based on the current room's rotation, and if its exit faces a different direction than its entrance
+            newRoom.transform.rotation = transform.parent.parent.rotation;
             newRoom.transform.Rotate(0, ExitRotation, 0);
             
             HallwaySpawner roomScript = newRoom.GetComponentInChildren<HallwaySpawner>();
-            roomScript.PreviousRoom = gameObject;
+            roomScript.PreviousRoom = transform.parent.parent.gameObject;
 
-            //If, instead, the new room's pivot is on the left side of the doorway, move the new room over a bit to the other exit corner
-            if (roomScript.PivotOnLeft)
-            {
-                newRoom.transform.position = ExitLocationLeft.position;
-            }
-            else
-            {
-                newRoom.transform.position = ExitLocationRight.position;
-            }
-
-            if (!isFirstRoom && PreviousRoom != null)
+            if (PreviousRoom != null)
             {
                 StartCoroutine(WaitToDestroyPrevious());
             }
         }
     }
 
+    /// <summary>
+    /// Destroys previous room in order to prevent the hallway from running into itself,
+    /// and to not lag the scene with a bunch of stuff
+    /// </summary>
     IEnumerator WaitToDestroyPrevious()
     {
         triggered = true;

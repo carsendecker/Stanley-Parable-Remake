@@ -2109,14 +2109,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3360323491900794919, guid: 5bc53cf963db54d34b4f00b389c60214,
         type: 3}
-      propertyPath: ExitRotation
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: Rooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 699026300288036027, guid: 8f1b2e69389b54f368cf8081cfa23534,
+        type: 3}
     - target: {fileID: 3360323491900794919, guid: 5bc53cf963db54d34b4f00b389c60214,
         type: 3}
       propertyPath: Rooms.Array.data[1]
       value: 
-      objectReference: {fileID: 8844507804194362166, guid: a0d10d998846e4a0bbbee6b15b9a83a7,
+      objectReference: {fileID: 575376675888768039, guid: 85171fbf7dba64daeb8aa3d2783070f1,
+        type: 3}
+    - target: {fileID: 3360323491900794919, guid: 5bc53cf963db54d34b4f00b389c60214,
+        type: 3}
+      propertyPath: Rooms.Array.data[2]
+      value: 
+      objectReference: {fileID: 9026267044821319153, guid: 462236bc52d5842baa2cd48c0870169b,
         type: 3}
     - target: {fileID: 3360323491900794919, guid: 5bc53cf963db54d34b4f00b389c60214,
         type: 3}
@@ -2128,6 +2135,11 @@ PrefabInstance:
       propertyPath: ExitLocationLeft
       value: 
       objectReference: {fileID: 4158874179817998287}
+    - target: {fileID: 3360323491900794919, guid: 5bc53cf963db54d34b4f00b389c60214,
+        type: 3}
+      propertyPath: ExitRotation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3360323491900794919, guid: 5bc53cf963db54d34b4f00b389c60214,
         type: 3}
       propertyPath: isFirstRoom
