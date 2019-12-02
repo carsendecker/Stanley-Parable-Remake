@@ -163,7 +163,7 @@ public class NarrationTrigger : MonoBehaviour
             Vector3 newPos = stanley.transform.position;
             newPos.y += 0.5f;
             
-            stanley.GetComponent<CharacterController>().Move(new Vector3(0, 0.002f, 0));
+            stanley.GetComponent<CharacterController>().Move(new Vector3(0, 0.004f, 0));
             
             yield return 0;
         }
@@ -184,7 +184,7 @@ public class NarrationTrigger : MonoBehaviour
         while (t < 1f)
         {
             t += Time.deltaTime * 0.4f;
-            float fogAmount = Mathf.Lerp(0, 0.65f, t);
+            float fogAmount = Mathf.Lerp(0, 0.4f, t);
 
             RenderSettings.fogDensity = fogAmount;
 
