@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -18,23 +19,22 @@ public struct VoiceLine
 //USAGE: put this on the NarrationTriggerSystem and it generates the main narration
 public class NarrationTrigger : MonoBehaviour
 {
-    public TMPro.TMP_Text MainNarration; //Subtitle text
-    public GameObject Panel;
-    public bool GameStart;
+//    public TMPro.TMP_Text MainNarration; //Subtitle text
+//    public GameObject Panel;
     
     public VoiceLine[] voiceLines; //Lines that this trigger will play
 
     [Header("Special Triggers")]
     public bool EndlessEnding;
-    public GameObject StarfieldParticles, FinalNarrationTrigger;
+    public GameObject StarfieldParticles, EyeClosePanel, FinalNarrationTrigger;
     [Space(10)] 
     public bool EndlessEndingPanic; //This one is for the trigger spawned at the end of the EndlessEnding trigger
     
     
     private AudioSystem audioSystem; //Reference to main system for playing narration and sound effects
     private bool alreadyPlayed;
-    
-    private Animation PanelDisappear, TextDisappear;
+
+//    private Animation PanelDisappear, TextDisappear;
     private bool isAdding;
 
     
@@ -42,11 +42,11 @@ public class NarrationTrigger : MonoBehaviour
     {
         audioSystem = GameObject.FindGameObjectWithTag("AudioSystem").GetComponent<AudioSystem>();
 
-        PanelDisappear = Panel.GetComponent<Animation>();
-        TextDisappear = MainNarration.GetComponent<Animation>();
+//        PanelDisappear = Panel.GetComponent<Animation>();
+//        TextDisappear = MainNarration.GetComponent<Animation>();
 
-        MainNarration.text = "";
-        Panel.SetActive(false);
+//        MainNarration.text = "";
+//        Panel.SetActive(false);
     }
 
     private void Update()
@@ -93,18 +93,18 @@ public class NarrationTrigger : MonoBehaviour
                 alreadyPlayed = true;
                 
                 //Activates subtitle panel
-                Panel.SetActive(true);
+//                Panel.SetActive(true);
 
                 continue;
             }
             
             //Plays subtitle panel animation, and transitions between subtitle lines
-            PanelDisappear.Play();
-            TextDisappear.Play();
+//            PanelDisappear.Play();
+//            TextDisappear.Play();
             
-            MainNarration.text = line.Subtitle;
+//            MainNarration.text = line.Subtitle;
             
-            Panel.SetActive(true);
+//            Panel.SetActive(true);
             
             //Waits until the previous line is done playing, then plays the next one
             yield return new WaitUntil(() => !audioSystem.NarrationAudio.isPlaying);
@@ -116,10 +116,14 @@ public class NarrationTrigger : MonoBehaviour
             {
                 EndlessCheck(lineNumber);
             }
+            else if (EndlessEndingPanic)
+            {
+                EndlessPanicCheck(lineNumber);
+            }
         }
         
         //When done, turn off subtitle panel
-        Panel.SetActive(false);
+//        Panel.SetActive(false);
     }
     
     //------------------------------------//
@@ -139,10 +143,24 @@ public class NarrationTrigger : MonoBehaviour
         else if (lineNumber == 24)
         {
             //Make stanley's eyes close for a bit
+            StartCoroutine(EndlessEyeClose());
         }
         else if (lineNumber == voiceLines.Length - 1)
         {
             //Make stanley's eyes open and turn everything red, then start a new dialogue
+            StartCoroutine(EndlessEyeOpen());
+        }
+    }
+
+    void EndlessPanicCheck(float lineNumber)
+    {
+        if (lineNumber == 1)
+        {
+            StartCoroutine(EndlessPanic());
+        }
+        else if (lineNumber == voiceLines.Length - 1)
+        {
+            StartCoroutine(EndlessPanicBlack());
         }
     }
     
@@ -213,7 +231,64 @@ public class NarrationTrigger : MonoBehaviour
 
     IEnumerator EndlessEyeClose()
     {
-        yield return 0;
+        EyeClosePanel.SetActive(true);
+        Image panel = EyeClosePanel.GetComponent<Image>();
+
+        float alpha = 0;
+        while (alpha < 1)
+        {
+            alpha += Time.deltaTime * 0.4f;
+            panel.color = Color.Lerp(Color.clear, Color.black, alpha);
+            yield return 0;
+        }
+    }
+
+    IEnumerator EndlessEyeOpen()
+    {
+        yield return new WaitForSeconds(4f);
+        Image panel = EyeClosePanel.GetComponent<Image>();
+
+        float alpha = 0;
+        while (alpha < 1)
+        {
+            alpha += Time.deltaTime * 0.3f;
+            panel.color = Color.Lerp(Color.black, Color.clear, alpha);
+            yield return 0;
+        }
+        
+        EyeClosePanel.SetActive(false);
+
+        GameObject stanley = GameObject.FindWithTag("Player");
+        GameObject newTrigger = Instantiate(FinalNarrationTrigger, stanley.transform.position, Quaternion.identity);
+
+        newTrigger.GetComponent<NarrationTrigger>().EyeClosePanel = EyeClosePanel;
+    }
+
+    
+    IEnumerator EndlessPanic()
+    {
+//        yield return new WaitForSeconds(2f);
+
+        EyeClosePanel.SetActive(true);
+        Image panel = EyeClosePanel.GetComponent<Image>();
+
+        float alpha = 0;
+        while (alpha < 0.6f)
+        {
+            alpha += Time.deltaTime * 0.1f;
+            panel.color = Color.Lerp(Color.clear, Color.red, alpha);
+            yield return 0;
+        }
+                
+    }
+
+    IEnumerator EndlessPanicBlack()
+    {
+        yield return new WaitForSeconds(2f);
+        Image panel = EyeClosePanel.GetComponent<Image>();
+        panel.color = Color.black;
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
 }
