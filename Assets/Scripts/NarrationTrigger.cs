@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -32,8 +33,8 @@ public class NarrationTrigger : MonoBehaviour
     
     private AudioSystem audioSystem; //Reference to main system for playing narration and sound effects
     private bool alreadyPlayed;
-    
-    private Animation PanelDisappear, TextDisappear;
+
+//    private Animation PanelDisappear, TextDisappear;
     private bool isAdding;
 
     
@@ -98,8 +99,8 @@ public class NarrationTrigger : MonoBehaviour
             }
             
             //Plays subtitle panel animation, and transitions between subtitle lines
-            PanelDisappear.Play();
-            TextDisappear.Play();
+//            PanelDisappear.Play();
+//            TextDisappear.Play();
             
 //            MainNarration.text = line.Subtitle;
             
@@ -153,7 +154,7 @@ public class NarrationTrigger : MonoBehaviour
 
     void EndlessPanicCheck(float lineNumber)
     {
-        if (lineNumber == 0)
+        if (lineNumber == 1)
         {
             StartCoroutine(EndlessPanic());
         }
@@ -258,13 +259,17 @@ public class NarrationTrigger : MonoBehaviour
         EyeClosePanel.SetActive(false);
 
         GameObject stanley = GameObject.FindWithTag("Player");
-        Instantiate(EndlessEndingPanic, stanley.transform.position, Quaternion.identity);
+        GameObject newTrigger = Instantiate(FinalNarrationTrigger, stanley.transform.position, Quaternion.identity);
+
+        newTrigger.GetComponent<NarrationTrigger>().EyeClosePanel = EyeClosePanel;
     }
 
+    
     IEnumerator EndlessPanic()
     {
-        yield return new WaitForSeconds(2f);
-        
+//        yield return new WaitForSeconds(2f);
+
+        EyeClosePanel.SetActive(true);
         Image panel = EyeClosePanel.GetComponent<Image>();
 
         float alpha = 0;
@@ -282,6 +287,8 @@ public class NarrationTrigger : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Image panel = EyeClosePanel.GetComponent<Image>();
         panel.color = Color.black;
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
 }
