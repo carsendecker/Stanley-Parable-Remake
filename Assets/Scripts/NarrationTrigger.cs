@@ -120,6 +120,7 @@ public class NarrationTrigger : MonoBehaviour
         
         //When done, turn off subtitle panel
         Panel.SetActive(false);
+        
     }
     
     //------------------------------------//
