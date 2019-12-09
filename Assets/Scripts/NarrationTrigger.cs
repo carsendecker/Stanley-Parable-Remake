@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,8 +20,8 @@ public struct VoiceLine
 //USAGE: put this on the NarrationTriggerSystem and it generates the main narration
 public class NarrationTrigger : MonoBehaviour
 {
-//    public TMPro.TMP_Text MainNarration; //Subtitle text
-//    public GameObject Panel;
+    public TMPro.TMP_Text MainNarration; //Subtitle text
+    public GameObject Panel;
     
     public VoiceLine[] voiceLines; //Lines that this trigger will play
 
@@ -34,19 +35,21 @@ public class NarrationTrigger : MonoBehaviour
     private AudioSystem audioSystem; //Reference to main system for playing narration and sound effects
     private bool alreadyPlayed;
 
-//    private Animation PanelDisappear, TextDisappear;
+    public Animation PanelDisappear, TextDisappear;
+
     private bool isAdding;
+    public int AllLineNumber; //This indicates how many lines this trigger will trigger in total
 
     
     void Start()
     {
         audioSystem = GameObject.FindGameObjectWithTag("AudioSystem").GetComponent<AudioSystem>();
 
-//        PanelDisappear = Panel.GetComponent<Animation>();
-//        TextDisappear = MainNarration.GetComponent<Animation>();
+       //PanelDisappear = Panel.GetComponent<Animation>();
+       //TextDisappear = MainNarration.GetComponent<Animation>();
 
-//        MainNarration.text = "";
-//        Panel.SetActive(false);
+        MainNarration.text = "";
+        Panel.SetActive(false);
     }
 
     private void Update()
@@ -84,6 +87,7 @@ public class NarrationTrigger : MonoBehaviour
     IEnumerator PlayNarrationSeries()
     {
         int lineNumber = 0;
+        bool EndNarration = false;
         foreach (VoiceLine line in voiceLines)
         {
             if (!alreadyPlayed)
@@ -92,8 +96,13 @@ public class NarrationTrigger : MonoBehaviour
                 audioSystem.PlayNarration(line.LineAudio);
                 alreadyPlayed = true;
                 
+                //Activates subtitle text
+                MainNarration.text = line.Subtitle;
                 //Activates subtitle panel
-//                Panel.SetActive(true);
+                Panel.SetActive(true);
+                PanelDisappear.Play("PanelAppear");
+                TextDisappear.Play("TextAppear");
+                
 
                 continue;
             }
@@ -102,17 +111,22 @@ public class NarrationTrigger : MonoBehaviour
 //            PanelDisappear.Play();
 //            TextDisappear.Play();
             
-//            MainNarration.text = line.Subtitle;
+//              MainNarration.text = line.Subtitle;
             
 //            Panel.SetActive(true);
             
             //Waits until the previous line is done playing, then plays the next one
+            
             yield return new WaitUntil(() => !audioSystem.NarrationAudio.isPlaying);
-            
             audioSystem.PlayNarration(line.LineAudio);
-            
             lineNumber++;
-            if (EndlessEnding)
+            
+            
+            
+            
+            Debug.Log(EndNarration);
+
+                if (EndlessEnding)
             {
                 EndlessCheck(lineNumber);
             }
@@ -120,10 +134,36 @@ public class NarrationTrigger : MonoBehaviour
             {
                 EndlessPanicCheck(lineNumber);
             }
+            if (!PanelDisappear.isPlaying && alreadyPlayed)
+            {
+                PanelDisappear.Play("PanelTransition");
+                TextDisappear.Play("TextTransition");
+                yield return new WaitForSeconds(0.3f); 
+                TextDisappear.Play("TextAppear");
+                MainNarration.text = line.Subtitle;
+            }
+        }
+        Debug.Log(lineNumber);
+        Debug.Log("alreadyPlayed =" + alreadyPlayed);
+        
+        
+        
+        yield return new WaitUntil(() => !audioSystem.NarrationAudio.isPlaying);
+
+        if (lineNumber > AllLineNumber-2)
+        {
+            EndNarration = true;
+        }
+
+        if (!PanelDisappear.isPlaying && EndNarration)
+        {
+            PanelDisappear.Play("PanelDisappear");
+            TextDisappear.Play("TextDisappear");
+            alreadyPlayed = false;
         }
         
+        Debug.Log("alreadyPlayed =" + alreadyPlayed);
         //When done, turn off subtitle panel
-//        Panel.SetActive(false);
     }
     
     //------------------------------------//
