@@ -1446,7 +1446,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorAnimator
       value: 
-      objectReference: {fileID: 2708907733375126531}
+      objectReference: {fileID: 0}
     - target: {fileID: 3259452588313740479, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1477,12 +1477,6 @@ PrefabInstance:
 --- !u!4 &2708907734776261979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3259452589194651105, guid: 85e5f4fa62968554889d2dabcb357ffa,
-    type: 3}
-  m_PrefabInstance: {fileID: 624909526126627002}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2708907733375126531 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3259452588313740473, guid: 85e5f4fa62968554889d2dabcb357ffa,
     type: 3}
   m_PrefabInstance: {fileID: 624909526126627002}
   m_PrefabAsset: {fileID: 0}
