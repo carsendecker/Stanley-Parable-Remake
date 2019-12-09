@@ -8,7 +8,7 @@ public class BackTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter");
+//        Debug.Log("enter");
         if (DC.AutoCloseBack == true)
         {
             DC.Disable = true;
