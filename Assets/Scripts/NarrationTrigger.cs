@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -43,10 +44,20 @@ public class NarrationTrigger : MonoBehaviour
     
     void Start()
     {
-        audioSystem = GameObject.FindGameObjectWithTag("AudioSystem").GetComponent<AudioSystem>();
+       audioSystem = GameObject.FindGameObjectWithTag("AudioSystem").GetComponent<AudioSystem>();
 
-       //PanelDisappear = Panel.GetComponent<Animation>();
-       //TextDisappear = MainNarration.GetComponent<Animation>();
+        if (Panel == null)
+        {
+            Panel = GameObject.FindWithTag("SubPanel");
+        }
+
+        if (MainNarration == null)
+        {
+            MainNarration = GameObject.FindWithTag("SubText").GetComponent<TMP_Text>();
+        }
+
+       PanelDisappear = Panel.GetComponent<Animation>();
+       TextDisappear = MainNarration.GetComponent<Animation>();
 
         MainNarration.text = "";
         Panel.SetActive(false);
@@ -301,7 +312,13 @@ public class NarrationTrigger : MonoBehaviour
         GameObject stanley = GameObject.FindWithTag("Player");
         GameObject newTrigger = Instantiate(FinalNarrationTrigger, stanley.transform.position, Quaternion.identity);
 
-        newTrigger.GetComponent<NarrationTrigger>().EyeClosePanel = EyeClosePanel;
+        NarrationTrigger newTrigScript = newTrigger.GetComponent<NarrationTrigger>();
+
+        newTrigScript.EyeClosePanel = EyeClosePanel;
+        newTrigScript.MainNarration = MainNarration;
+        newTrigScript.Panel = Panel;
+        newTrigScript.PanelDisappear = PanelDisappear;
+        newTrigScript.TextDisappear = TextDisappear;
     }
 
     
