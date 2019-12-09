@@ -17826,10 +17826,30 @@ PrefabInstance:
       propertyPath: PreviousRoom
       value: 
       objectReference: {fileID: 1580374312}
+    - target: {fileID: 2708907734776261976, guid: 85171fbf7dba64daeb8aa3d2783070f1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4749337500088563345, guid: 85171fbf7dba64daeb8aa3d2783070f1,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708907733190938799, guid: 85171fbf7dba64daeb8aa3d2783070f1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708907733375126533, guid: 85171fbf7dba64daeb8aa3d2783070f1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708907734812759884, guid: 85171fbf7dba64daeb8aa3d2783070f1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4275897055956557697, guid: 85171fbf7dba64daeb8aa3d2783070f1,
         type: 3}
@@ -17855,6 +17875,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SelectedVertices.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 738963566835001116, guid: 85171fbf7dba64daeb8aa3d2783070f1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708907734048992858, guid: 85171fbf7dba64daeb8aa3d2783070f1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85171fbf7dba64daeb8aa3d2783070f1, type: 3}
