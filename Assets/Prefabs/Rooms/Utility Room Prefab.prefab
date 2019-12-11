@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5874463074491990132
 Transform:
@@ -91,7 +91,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 6cd9e32b881ad4386beb8a4a8f3a451c, type: 2}
+  - {fileID: 2100000, guid: 7578549ac0da347e08d84e822ba2bb88, type: 2}
+  - {fileID: 2100000, guid: 109ea8cd1ea154256965e55f83c18f58, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,7 +158,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 1
     elementGroup: 0
     m_TextureGroup: -1
@@ -173,7 +175,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -190,7 +192,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -207,7 +209,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -224,7 +226,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -241,7 +243,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -258,7 +260,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -275,7 +277,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -292,7 +294,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -523,7 +525,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5874463074515694827
 Transform:
@@ -565,6 +567,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 109ea8cd1ea154256965e55f83c18f58, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -612,7 +615,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -629,7 +632,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -646,7 +649,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -663,7 +666,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -680,7 +683,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -927,7 +930,7 @@ MonoBehaviour:
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
-  m_SelectedVertices: 06000000
+  m_SelectedVertices: 
 --- !u!64 &5874463074515694820
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -960,7 +963,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5874463074833335724
 Transform:
@@ -1001,7 +1004,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 109ea8cd1ea154256965e55f83c18f58, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1331,7 +1334,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2234572237693715952
 Transform:
@@ -1363,7 +1366,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2066705579901865270
 Transform:
@@ -1425,7 +1428,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7377950454333483677
 Transform:
@@ -1454,6 +1457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: doorset
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259452589194651106, guid: 85e5f4fa62968554889d2dabcb357ffa,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3259452589194651105, guid: 85e5f4fa62968554889d2dabcb357ffa,
         type: 3}
@@ -1545,6 +1553,31 @@ PrefabInstance:
       propertyPath: doorAnimator
       value: 
       objectReference: {fileID: 8079945532942481873}
+    - target: {fileID: 3259452588313740479, guid: 85e5f4fa62968554889d2dabcb357ffa,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259452588699850773, guid: 85e5f4fa62968554889d2dabcb357ffa,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259452589231284214, guid: 85e5f4fa62968554889d2dabcb357ffa,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 210908963991908262, guid: 85e5f4fa62968554889d2dabcb357ffa,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259452589523429088, guid: 85e5f4fa62968554889d2dabcb357ffa,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e5f4fa62968554889d2dabcb357ffa, type: 3}
 --- !u!4 &8079945533655734409 stripped
