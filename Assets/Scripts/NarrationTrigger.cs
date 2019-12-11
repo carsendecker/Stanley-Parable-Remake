@@ -30,11 +30,14 @@ public class NarrationTrigger : MonoBehaviour
     [Space(10)] 
     public bool EndlessEndingPanic; //This one is for the trigger spawned at the end of the EndlessEnding trigger
     public AudioClip PanicMusic;
+    [Space(10)]
+    public bool CowardEnding;
     
     
     private AudioSystem audioSystem; //Reference to main system for playing narration and sound effects
     private bool alreadyPlayed;
 
+    [Space(10)]
     public Animation PanelDisappear, TextDisappear;
 
     private bool isAdding;
@@ -144,6 +147,11 @@ public class NarrationTrigger : MonoBehaviour
             {
                 EndlessPanicCheck(lineNumber);
             }
+            else if (CowardEnding)
+                {
+                    CowardEndingCheck(lineNumber);
+                }
+            
             if (!PanelDisappear.isPlaying && alreadyPlayed)
             {
                 PanelDisappear.Play("PanelTransition");
@@ -215,6 +223,14 @@ public class NarrationTrigger : MonoBehaviour
             StartCoroutine(EndlessPanicBlack());
         }
     }
+
+    void CowardEndingCheck(float lineNumber)
+    {
+        if (lineNumber == voiceLines.Length - 1)
+        {
+            StartCoroutine(CowardEndingCutoff());
+        }
+    }
     
     
     IEnumerator EndlessFloating()
@@ -233,12 +249,12 @@ public class NarrationTrigger : MonoBehaviour
             Vector3 newPos = stanley.transform.position;
             newPos.y += 0.5f;
             
-            stanley.GetComponent<CharacterController>().Move(new Vector3(0, 0.01f, 0));
+            stanley.GetComponent<CharacterController>().Move(new Vector3(0, 0.012f, 0));
             
             yield return 0;
         }
                 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
 
         stanley.Gravity = 4;
     }
@@ -347,6 +363,12 @@ public class NarrationTrigger : MonoBehaviour
         Image panel = EyeClosePanel.GetComponent<Image>();
         panel.color = Color.black;
         yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator CowardEndingCutoff()
+    {
+        yield return new WaitForSeconds(audioSystem.NarrationAudio.clip.length);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
