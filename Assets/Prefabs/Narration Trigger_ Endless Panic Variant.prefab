@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8421105474973488861, guid: f669124be723a46f983fa42547b8bb58,
-        type: 3}
-      propertyPath: m_Name
-      value: Narration Trigger_ Endless Panic Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 8421105474973488856, guid: f669124be723a46f983fa42547b8bb58,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,6 +62,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8421105474973488861, guid: f669124be723a46f983fa42547b8bb58,
+        type: 3}
+      propertyPath: m_Name
+      value: Narration Trigger_ Endless Panic Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8421105474973488862, guid: f669124be723a46f983fa42547b8bb58,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.38
+      objectReference: {fileID: 0}
     - target: {fileID: 8421105474973488863, guid: f669124be723a46f983fa42547b8bb58,
         type: 3}
       propertyPath: voiceLines.Array.size
@@ -114,10 +119,10 @@ PrefabInstance:
       propertyPath: AllLineNumber
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8421105474973488862, guid: f669124be723a46f983fa42547b8bb58,
+    - target: {fileID: 8421105474973488863, guid: f669124be723a46f983fa42547b8bb58,
         type: 3}
-      propertyPath: m_Size.z
-      value: 2.38
-      objectReference: {fileID: 0}
+      propertyPath: PanicMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 4cb9c072d1240c64fbd99d86951a6cc4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f669124be723a46f983fa42547b8bb58, type: 3}
