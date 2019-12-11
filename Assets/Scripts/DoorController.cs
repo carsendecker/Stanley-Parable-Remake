@@ -15,12 +15,14 @@ public class DoorController : MonoBehaviour
 
     public Animator doorAnimator;
 
+    public bool DisableAfterUsing;
+    public bool CowardDoor;
+    public GameObject CowardTrigger;
+
     // Start is called before the first frame update
     void Start()
     {
        
-
-
         doorAnimator = GetComponent<Animator>();
         if (doorFrontOpen == true)
         {
@@ -54,6 +56,8 @@ public class DoorController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
                 {
                     doorAnimator.SetTrigger("pressE");
+                    if (DisableAfterUsing)
+                        Disable = true;
                 }
 
 
@@ -65,6 +69,12 @@ public class DoorController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
                 {
                     doorAnimator.SetTrigger("pressE");
+                    if (DisableAfterUsing)
+                        Disable = true;
+                    if (CowardDoor)
+                    {
+                        CowardTrigger.SetActive(true);
+                    }
                 }
             }
         }
