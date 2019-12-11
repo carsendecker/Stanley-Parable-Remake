@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
-using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,7 +19,7 @@ public struct VoiceLine
 //USAGE: put this on the NarrationTriggerSystem and it generates the main narration
 public class NarrationTrigger : MonoBehaviour
 {
-    public TMPro.TMP_Text MainNarration; //Subtitle text
+    public TMP_Text MainNarration; //Subtitle text
     public GameObject Panel;
     
     public VoiceLine[] voiceLines; //Lines that this trigger will play
@@ -232,7 +230,7 @@ public class NarrationTrigger : MonoBehaviour
             Vector3 newPos = stanley.transform.position;
             newPos.y += 0.5f;
             
-            stanley.GetComponent<CharacterController>().Move(new Vector3(0, 0.004f, 0));
+            stanley.GetComponent<CharacterController>().Move(new Vector3(0, 0.01f, 0));
             
             yield return 0;
         }
