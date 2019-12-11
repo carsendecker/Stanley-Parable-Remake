@@ -76,26 +76,43 @@ PrefabInstance:
         type: 3}
       propertyPath: voiceLines.Array.data[0].LineAudio
       value: 
-      objectReference: {fileID: 8300000, guid: 811158035efb1433e987c2bfbfed72e4, type: 3}
+      objectReference: {fileID: 8300000, guid: 787bfccd3e83443b9b95011baa2557b5, type: 3}
     - target: {fileID: 8421105474973488863, guid: f669124be723a46f983fa42547b8bb58,
         type: 3}
       propertyPath: voiceLines.Array.data[0].Subtitle
-      value: 
+      value: Stanley began screaming. Please someone wake me up! My name is Stanley!
+        I have a boss! I have an office! I am real!
       objectReference: {fileID: 0}
     - target: {fileID: 8421105474973488863, guid: f669124be723a46f983fa42547b8bb58,
         type: 3}
       propertyPath: voiceLines.Array.data[1].LineAudio
       value: 
-      objectReference: {fileID: 8300000, guid: 5241314d2499a40918cc7177bc7dd36b, type: 3}
+      objectReference: {fileID: 8300000, guid: 728eb0233f20e40b3a0b84b85da40ad1, type: 3}
     - target: {fileID: 8421105474973488863, guid: f669124be723a46f983fa42547b8bb58,
         type: 3}
       propertyPath: voiceLines.Array.data[2].LineAudio
       value: 
-      objectReference: {fileID: 8300000, guid: b2f51ef8f83ba47108cba99e017b3bcd, type: 3}
+      objectReference: {fileID: 8300000, guid: 2dda12924fb2f4bd5adb136f0bca4d40, type: 3}
     - target: {fileID: 8421105474973488863, guid: f669124be723a46f983fa42547b8bb58,
         type: 3}
       propertyPath: EndlessEndingPanic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8421105474973488863, guid: f669124be723a46f983fa42547b8bb58,
+        type: 3}
+      propertyPath: voiceLines.Array.data[1].Subtitle
+      value: Please just someone tell me i'm real! I must be real! I must be! Can
+        anyone hear my voice?! Who am I? Who am I?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8421105474973488863, guid: f669124be723a46f983fa42547b8bb58,
+        type: 3}
+      propertyPath: voiceLines.Array.data[2].Subtitle
+      value: And everything went black.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8421105474973488863, guid: f669124be723a46f983fa42547b8bb58,
+        type: 3}
+      propertyPath: AllLineNumber
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8421105474973488862, guid: f669124be723a46f983fa42547b8bb58,
         type: 3}
