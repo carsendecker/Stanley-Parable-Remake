@@ -8,7 +8,7 @@ using UnityEngine;
 public class AudioSystem : MonoBehaviour
 {
     public AudioSource NarrationAudio;
-    public AudioSource SoundEffectAudio;
+    public AudioSource MusicAudio;
 
     
     /// <summary>
