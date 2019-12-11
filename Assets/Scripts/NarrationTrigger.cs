@@ -29,6 +29,7 @@ public class NarrationTrigger : MonoBehaviour
     public GameObject StarfieldParticles, EyeClosePanel, FinalNarrationTrigger;
     [Space(10)] 
     public bool EndlessEndingPanic; //This one is for the trigger spawned at the end of the EndlessEnding trigger
+    public AudioClip PanicMusic;
     
     
     private AudioSystem audioSystem; //Reference to main system for playing narration and sound effects
@@ -205,6 +206,8 @@ public class NarrationTrigger : MonoBehaviour
     {
         if (lineNumber == 1)
         {
+            audioSystem.MusicAudio.clip = PanicMusic;
+            audioSystem.MusicAudio.Play();
             StartCoroutine(EndlessPanic());
         }
         else if (lineNumber == voiceLines.Length - 1)
@@ -339,6 +342,7 @@ public class NarrationTrigger : MonoBehaviour
 
     IEnumerator EndlessPanicBlack()
     {
+        audioSystem.MusicAudio.Stop();
         yield return new WaitForSeconds(2f);
         Image panel = EyeClosePanel.GetComponent<Image>();
         panel.color = Color.black;
