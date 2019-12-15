@@ -180,6 +180,9 @@ MonoBehaviour:
   front: 0
   back: 0
   doorAnimator: {fileID: 0}
+  DisableAfterUsing: 0
+  CowardDoor: 0
+  CowardTrigger: {fileID: 0}
 --- !u!65 &3259452588313740477
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -255,8 +258,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 52.68559, y: 1, z: 2.1117437}
-  m_Center: {x: -28.120571, y: 0, z: -0.33197683}
+  m_Size: {x: 32.73849, y: 1, z: 2.111744}
+  m_Center: {x: -48.547997, y: 0, z: -0.3319768}
 --- !u!114 &3259452588699850770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,8 +350,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 44.658882, y: 1, z: 1.7971052}
-  m_Center: {x: 23.384068, y: 0, z: 0.09185309}
+  m_Size: {x: 28.029154, y: 1, z: 1.7971052}
+  m_Center: {x: 40.13521, y: 0, z: 0.09185309}
 --- !u!114 &3259452589231284211
 MonoBehaviour:
   m_ObjectHideFlags: 0
