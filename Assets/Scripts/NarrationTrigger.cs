@@ -114,7 +114,13 @@ public class NarrationTrigger : MonoBehaviour
                 //Plays very first voice line, interrupting any previously playing narration series
                 audioSystem.PlayNarration(line.LineAudio);
                 alreadyPlayed = true;
-                
+
+                if (EndlessEndingPanic)
+                {
+                    //Plays music and makes the screen red
+                    StartCoroutine(EndlessPanic());
+                }
+
                 //Activates subtitle text
                 MainNarration.text = line.Subtitle;
                 //Activates subtitle panel
@@ -145,7 +151,7 @@ public class NarrationTrigger : MonoBehaviour
             }
             else if (CowardEnding)
             {
-                    CowardEndingCheck(lineNumber);
+                 CowardEndingCheck(lineNumber);
             }
             
             if (!PanelDisappear.isPlaying && alreadyPlayed)
@@ -226,12 +232,8 @@ public class NarrationTrigger : MonoBehaviour
     //For endless ending after eye close, as these voice lines are contained in a separate instantiated trigger
     void EndlessPanicCheck(float lineNumber)
     {
-        if (lineNumber == 0)
-        {
-            //Plays music and makes the screen red
-            StartCoroutine(EndlessPanic());
-        }
-        else if (lineNumber == voiceLines.Length - 1)
+
+        if (lineNumber == voiceLines.Length - 1)
         {
             //Blacks out the screen and reloads the scene
             StartCoroutine(EndlessPanicBlack());

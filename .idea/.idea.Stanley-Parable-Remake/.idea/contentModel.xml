@@ -19,6 +19,7 @@
             <e p="MouseLook.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
           </e>
+          <e p="PrefabLightmapData.cs" t="Include" />
           <e p="System" t="Include">
             <e p="AudioSystem.cs" t="Include" />
             <e p="MenuManager.cs" t="Include" />
