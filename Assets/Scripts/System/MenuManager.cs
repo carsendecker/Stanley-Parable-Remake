@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -12,9 +13,9 @@ public class MenuManager : MonoBehaviour
         Cursor.visible = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene(1);
     }
 }

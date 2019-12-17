@@ -43,6 +43,9 @@ public class NarrationTrigger : MonoBehaviour
     private bool isAdding;
     public int AllLineNumber; //This indicates how many lines this trigger will trigger in total
 
+    public AudioSource StartMusicSource;
+    public bool TurnOffMusic;
+
     
     void Start()
     {
@@ -69,7 +72,7 @@ public class NarrationTrigger : MonoBehaviour
     {
         if (EndlessEnding)
         {
-            //FOR DEBUGGING PURPOSES ONLY, DELETE WHEN DONE
+            //FOR DEBUGGING PURPOSES
             if (Input.GetKeyDown(KeyCode.Alpha9))
             {
                 StartCoroutine(EndlessFloating());
@@ -88,6 +91,9 @@ public class NarrationTrigger : MonoBehaviour
         {
             return;
         }
+
+        if (TurnOffMusic)
+            StartCoroutine(FadeOutMusic());
         
         StartCoroutine(PlayNarrationSeries());
 
@@ -108,7 +114,13 @@ public class NarrationTrigger : MonoBehaviour
                 //Plays very first voice line, interrupting any previously playing narration series
                 audioSystem.PlayNarration(line.LineAudio);
                 alreadyPlayed = true;
-                
+
+                if (EndlessEndingPanic)
+                {
+                    //Plays music and makes the screen red
+                    StartCoroutine(EndlessPanic());
+                }
+
                 //Activates subtitle text
                 MainNarration.text = line.Subtitle;
                 //Activates subtitle panel
@@ -120,26 +132,16 @@ public class NarrationTrigger : MonoBehaviour
                 continue;
             }
             
-            //Plays subtitle panel animation, and transitions between subtitle lines
-//            PanelDisappear.Play();
-//            TextDisappear.Play();
-            
-//              MainNarration.text = line.Subtitle;
-            
-//            Panel.SetActive(true);
             
             //Waits until the previous line is done playing, then plays the next one
-            
             yield return new WaitUntil(() => !audioSystem.NarrationAudio.isPlaying);
             audioSystem.PlayNarration(line.LineAudio);
             lineNumber++;
             
             
-            
-            
-            Debug.Log(EndNarration);
 
-                if (EndlessEnding)
+            //Checks for multiple special cases, typically for scripted events in each ending
+            if (EndlessEnding)
             {
                 EndlessCheck(lineNumber);
             }
@@ -148,9 +150,9 @@ public class NarrationTrigger : MonoBehaviour
                 EndlessPanicCheck(lineNumber);
             }
             else if (CowardEnding)
-                {
-                    CowardEndingCheck(lineNumber);
-                }
+            {
+                 CowardEndingCheck(lineNumber);
+            }
             
             if (!PanelDisappear.isPlaying && alreadyPlayed)
             {
@@ -183,19 +185,36 @@ public class NarrationTrigger : MonoBehaviour
         Debug.Log("alreadyPlayed =" + alreadyPlayed);
         //When done, turn off subtitle panel
     }
+
+    IEnumerator FadeOutMusic()
+    {
+        float t = 1;
+        while (t > 0)
+        {
+            t -= Time.deltaTime;
+            StartMusicSource.volume = t;
+            yield return 0;
+        }
+        StartMusicSource.Stop();
+    }
+    
+    
     
     //------------------------------------//
     //        ENDLESS ENDING METHODS      //
     //------------------------------------//
 
+    //For the endless ending, where certain scripted effects happen during specific voice lines
     void EndlessCheck(float lineNumber)
     {
         if (lineNumber == 11)
         {
+            //Makes Stanley float
             StartCoroutine(EndlessFloating());
         }
         else if (lineNumber == 12)
         {
+            //Makes fog and star particles float around
             StartCoroutine(EndlessFog());
         }
         else if (lineNumber == 24)
@@ -205,29 +224,28 @@ public class NarrationTrigger : MonoBehaviour
         }
         else if (lineNumber == voiceLines.Length - 1)
         {
-            //Make stanley's eyes open and turn everything red, then start a new dialogue
+            //Make stanley's eyes open, then start a new "panic" dialogue
             StartCoroutine(EndlessEyeOpen());
         }
     }
 
+    //For endless ending after eye close, as these voice lines are contained in a separate instantiated trigger
     void EndlessPanicCheck(float lineNumber)
     {
-        if (lineNumber == 1)
+
+        if (lineNumber == voiceLines.Length - 1)
         {
-            audioSystem.MusicAudio.clip = PanicMusic;
-            audioSystem.MusicAudio.Play();
-            StartCoroutine(EndlessPanic());
-        }
-        else if (lineNumber == voiceLines.Length - 1)
-        {
+            //Blacks out the screen and reloads the scene
             StartCoroutine(EndlessPanicBlack());
         }
     }
 
+    //For when Stanley closes the door to his office
     void CowardEndingCheck(float lineNumber)
     {
         if (lineNumber == voiceLines.Length - 1)
         {
+            //Reloads the scene again
             StartCoroutine(CowardEndingCutoff());
         }
     }
@@ -236,14 +254,14 @@ public class NarrationTrigger : MonoBehaviour
     IEnumerator EndlessFloating()
     {
         PlayerController stanley = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-//        stanley.CanMove = false;
         
         float oGrav = stanley.Gravity; //Stanleys original gravity (for some reason this doesn't work/store properly???)
 
         stanley.Gravity = 0f;
 
+        //Moves stanley up for a bit
         float t = 0;
-        while (t < 3f)
+        while (t < 4f)
         {
             t += Time.deltaTime;
             Vector3 newPos = stanley.transform.position;
@@ -259,14 +277,16 @@ public class NarrationTrigger : MonoBehaviour
         stanley.Gravity = 4;
     }
 
+    
     IEnumerator EndlessFog()
     {
+        //Turns on scene fog
         RenderSettings.fog = true;
         float t = 0;
 
         Transform stanTran = GameObject.FindWithTag("Player").transform;
         
-
+        //Slowly increases fog density
         while (t < 1f)
         {
             t += Time.deltaTime * 0.4f;
@@ -277,11 +297,13 @@ public class NarrationTrigger : MonoBehaviour
             yield return 0;
         }
         
+        //Creates particles for stars
         GameObject starParticles = Instantiate(StarfieldParticles, stanTran.position, Quaternion.identity);
         starParticles.transform.parent = stanTran;
         
         yield return new WaitForSeconds(6f);
 
+        //Slowly lowers fog density
         t = 0;
         while (t < 1f)
         {
@@ -297,8 +319,10 @@ public class NarrationTrigger : MonoBehaviour
         Destroy(starParticles);
     }
 
+    
     IEnumerator EndlessEyeClose()
     {
+        //Makes a black UI panel fade in to black out screen
         EyeClosePanel.SetActive(true);
         Image panel = EyeClosePanel.GetComponent<Image>();
 
@@ -311,8 +335,10 @@ public class NarrationTrigger : MonoBehaviour
         }
     }
 
+    
     IEnumerator EndlessEyeOpen()
     {
+        //Fades out the black panel
         yield return new WaitForSeconds(4f);
         Image panel = EyeClosePanel.GetComponent<Image>();
 
@@ -326,11 +352,13 @@ public class NarrationTrigger : MonoBehaviour
         
         EyeClosePanel.SetActive(false);
 
+        //Creates a new narration trigger at stanley's location, which begins the panic sequence
         GameObject stanley = GameObject.FindWithTag("Player");
         GameObject newTrigger = Instantiate(FinalNarrationTrigger, stanley.transform.position, Quaternion.identity);
 
         NarrationTrigger newTrigScript = newTrigger.GetComponent<NarrationTrigger>();
 
+        //Assign the new trigger's variables for it
         newTrigScript.EyeClosePanel = EyeClosePanel;
         newTrigScript.MainNarration = MainNarration;
         newTrigScript.Panel = Panel;
@@ -341,15 +369,19 @@ public class NarrationTrigger : MonoBehaviour
     
     IEnumerator EndlessPanic()
     {
-//        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f);
+        
+        audioSystem.MusicAudio.clip = PanicMusic;
+        audioSystem.MusicAudio.Play();
 
         EyeClosePanel.SetActive(true);
         Image panel = EyeClosePanel.GetComponent<Image>();
 
+        //Slowly turns screen tint red
         float alpha = 0;
         while (alpha < 0.6f)
         {
-            alpha += Time.deltaTime * 0.1f;
+            alpha += Time.deltaTime * 0.13f;
             panel.color = Color.Lerp(Color.clear, Color.red, alpha);
             yield return 0;
         }
@@ -358,10 +390,13 @@ public class NarrationTrigger : MonoBehaviour
 
     IEnumerator EndlessPanicBlack()
     {
+        //Stops music, waits, then blacks out screen
         audioSystem.MusicAudio.Stop();
         yield return new WaitForSeconds(2f);
         Image panel = EyeClosePanel.GetComponent<Image>();
         panel.color = Color.black;
+        
+        //reloads the scene to start again
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -371,5 +406,7 @@ public class NarrationTrigger : MonoBehaviour
         yield return new WaitForSeconds(audioSystem.NarrationAudio.clip.length);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    
+  
     
 }
